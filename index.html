@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Message</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fef3c7;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .message-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .message {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button.no {
+            background-color: #f44336;
+        }
+        .hearts {
+            color: #ff6b81;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-box">
+        <p class="message" id="message">Can I tell you something?</p>
+        <button onclick="handleYes()">Yes</button>
+        <button class="no" onclick="handleNo()">No</button>
+    </div>
+
+    <script>
+        const message = document.getElementById('message');
+
+        function handleYes() {
+            if (message.textContent === 'Can I tell you something?') {
+                message.textContent = 'Would like to take you out on a date. Chale?';
+            } else if (message.textContent === 'Would like to take you out on a date. Chale?') {
+                message.innerHTML = 'Thank you! <span class="hearts">❤❤❤</span>';
+                document.querySelector('.message-box').innerHTML = message.innerHTML; // Clear buttons after this message
+            }
+        }
+
+        function handleNo() {
+            if (message.textContent === 'Can I tell you something?') {
+                message.textContent = 'Please listen naa';
+            } else if (message.textContent === 'Would like to take you out on a date. Chale?') {
+                message.textContent = 'Please maanlo naa and accept';
+            }
+        }
+    </script>
+</body>
+</html>
