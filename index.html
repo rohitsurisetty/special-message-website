@@ -65,8 +65,10 @@
         function handleNo() {
             if (message.textContent === 'Can I tell you something?') {
                 message.textContent = 'Please listen naa';
+                setTimeout(() => message.textContent = 'Can I tell you something?', 1500); // Redirect to first question
             } else if (message.textContent === 'Would like to take you out on a date. Chale?') {
                 message.textContent = 'Please maanlo naa and accept';
+                setTimeout(() => message.textContent = 'Would like to take you out on a date. Chale?', 1500); // Redirect to second question
             }
         }
     </script>
